@@ -1,0 +1,40 @@
+{
+  "name": "memorization-app",
+  "version": "1.0.0",
+  "description": "Memorize stuff you want to learn, word for word",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape client/**/*-test.js",
+    "build": "npm run glob-routes && rollup -c --environment NODE_ENV:production",
+    "watch-rollup": "rollup -c -w --environment NODE_ENV:development",
+    "watch-glob": "watch \"npm run glob-routes\" client/routes",
+    "glob-routes": "glob-module-file --pattern=\"client/routes/**/*.vue\" --format=es --pathPrefix=../ --outputPath=client/globbed-routes.js",
+    "dev": "npm run glob-routes && sh -c 'npm run watch-glob & npm run watch-rollup && kill 0'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TehShrike/memorization-app.git"
+  },
+  "author": "TehShrike",
+  "license": "WTFPL",
+  "bugs": {
+    "url": "https://github.com/TehShrike/memorization-app/issues"
+  },
+  "homepage": "https://github.com/TehShrike/memorization-app#readme",
+  "dependencies": {
+    "glob-module-file": "2.0.0",
+    "rollup": "0.50.0",
+    "rollup-plugin-commonjs": "8.2.4",
+    "rollup-plugin-node-resolve": "3.0.0",
+    "rollup-plugin-replace": "2.0.0",
+    "rollup-plugin-visualizer": "0.3.1",
+    "rollup-plugin-vue": "2.5.2",
+    "tape": "4.8.0",
+    "vue": "2.5.2",
+    "vue-router": "3.0.1",
+    "vue-template-compiler": "2.5.2"
+  },
+  "devDependencies": {
+    "watch": "1.0.2"
+  }
+}
