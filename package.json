@@ -5,11 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "tape client/**/*-test.js",
-    "build": "npm run glob-routes && rollup -c --environment NODE_ENV:production",
-    "watch-rollup": "rollup -c -w --environment NODE_ENV:development",
-    "watch-glob": "watch \"npm run glob-routes\" client/routes",
-    "glob-routes": "glob-module-file --pattern=\"client/routes/**/*.vue\" --format=es --pathPrefix=../ --outputPath=client/globbed-routes.js",
-    "dev": "npm run glob-routes && sh -c 'npm run watch-glob & npm run watch-rollup && kill 0'"
+    "build": "rollup -c --environment NODE_ENV:production",
+    "watch": "rollup -c -w --environment NODE_ENV:development"
   },
   "repository": {
     "type": "git",
@@ -22,7 +19,6 @@
   },
   "homepage": "https://github.com/TehShrike/memorization-app#readme",
   "dependencies": {
-    "glob-module-file": "2.0.0",
     "rollup": "0.50.0",
     "rollup-plugin-commonjs": "8.2.4",
     "rollup-plugin-node-resolve": "3.0.0",
@@ -33,7 +29,9 @@
     "tape": "4.8.0",
     "vue": "2.5.2",
     "vue-router": "3.0.1",
-    "vue-template-compiler": "2.5.2"
+    "vue-template-compiler": "2.5.2",
+    "vuex": "^3.0.1",
+    "vuex-router-sync": "^5.0.0"
   },
   "devDependencies": {
     "watch": "1.0.2"
