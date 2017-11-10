@@ -15,12 +15,12 @@ export default (httpGet) => ({
 		}
 	},
 	actions: {
-		async fetchWorkbook(context, workbookId) {
-			const workbook = await getWorkbook(workbookId, httpGet)
+		async fetchWorkbook(context, workbookKey) {
+			const workbook = await getWorkbook(workbookKey, httpGet)
 			context.commit('setWorkbook', workbook)
 		},
-		async fetchSheet(context, sheetId) {
-			const sheet = await getSheet(sheetId, httpGet)
+		async fetchSheet(context, workbookKey, sheetId) {
+			const sheet = await getSheet(workbookKey, sheetId, httpGet)
 			context.commit('setSheet', sheet)
 		}
 	},
