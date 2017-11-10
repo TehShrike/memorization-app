@@ -1,12 +1,3 @@
-/*
-
-verbs:
-
-- load a workbook from google (requires workbook id)
-- load a sheet from google (requires workbook and sheet id)
-
-*/
-
 import sheetsy from 'sheetsy'
 const { urlToKey, getWorkbook, getSheet } = sheetsy
 
